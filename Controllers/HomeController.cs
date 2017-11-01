@@ -12,6 +12,7 @@ namespace NetCore_Angular.Controllers
         public IActionResult Index()
         {
             return View();
+            
         }
 
         public IActionResult Error()

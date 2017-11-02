@@ -24,3 +24,6 @@ dotnet ef migrations remove (Remueve la última migración en vscode)
 Update-Database (Actualiza la base de datos en visual stuio)
 Update-Database 0(Actualiza la base de datos en visual stuio hasta la primera migración creada)
 dotnet ef database update (Actualiza la base de datos en visual stuio code)
+
+Install-Package AutoMapper -Version 6.1.1
+Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection -Version 1.2.0

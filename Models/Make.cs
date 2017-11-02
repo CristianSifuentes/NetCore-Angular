@@ -8,8 +8,6 @@ namespace NetCore_Angular.Models
 {
     public class Make
     {
-
-
         public int Id { get; set; }
 
         [Required]

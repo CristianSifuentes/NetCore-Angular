@@ -21,6 +21,6 @@ Remove-Migration (Remueve la ultima migración creada)
 dotnet ef migrations remove (Remueve la última migración en vscode)
 
 
-Update-Databse (Actualiza la base de datos en visual stuio)
-Update-Databse 0(Actualiza la base de datos en visual stuio hasta la primera migración creada)
+Update-Database (Actualiza la base de datos en visual stuio)
+Update-Database 0(Actualiza la base de datos en visual stuio hasta la primera migración creada)
 dotnet ef database update (Actualiza la base de datos en visual stuio code)

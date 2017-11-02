@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NetCore_Angular.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace NetCore_Angular.Persistence
         {
             //System.Configuration.ConfigurationManager
         }
+
+        public DbSet<Make> Makes { get; set; }
     }
 }

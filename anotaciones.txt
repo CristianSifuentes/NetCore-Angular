@@ -1,0 +1,26 @@
+dotnet --info
+dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
+dotnet new
+dotnet run
+dotnet watch
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+dotnet restore
+dotnet watch run
+
+tengo una variable de ASPNETCORE_ENVIRONMENT con Development
+
+Add-Migration InitialModel (Crear una migración desde nuget de visual studio)
+dotnet ef migrations add initialcreate (Crear una migración desde vscode)
+
+
+Remove-Migration (Remueve la ultima migración creada)
+dotnet ef migrations remove (Remueve la última migración en vscode)
+
+
+Update-Databse (Actualiza la base de datos en visual stuio)
+Update-Databse 0(Actualiza la base de datos en visual stuio hasta la primera migración creada)
+dotnet ef database update (Actualiza la base de datos en visual stuio code)

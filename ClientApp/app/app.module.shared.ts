@@ -11,6 +11,9 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 
+
+import { MakeService } from './services/make.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -32,6 +35,8 @@ import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.com
             { path: 'vehicles/new', component: VehicleFormComponent },
             { path: '**', redirectTo: 'home' }
         ])
+    ],providers: [
+        MakeService
     ]
 })
 export class AppModuleShared {

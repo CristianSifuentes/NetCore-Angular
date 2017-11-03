@@ -27,3 +27,8 @@ dotnet ef database update (Actualiza la base de datos en visual stuio code)
 
 Install-Package AutoMapper -Version 6.1.1
 Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection -Version 1.2.0
+
+Genere un proyecto con angular cli, me traje el archivo .angular-cli.json y cambie src por ClientApp para poder
+generar los componentes
+
+ng g c vehicle-form --module='app.module.shared.ts'

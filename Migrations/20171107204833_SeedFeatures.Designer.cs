@@ -11,9 +11,10 @@ using System;
 namespace NetCoreAngular.Migrations
 {
     [DbContext(typeof(NetCoreAngularDbContext))]
-    partial class NetCoreAngularDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171107204833_SeedFeatures")]
+    partial class SeedFeatures
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

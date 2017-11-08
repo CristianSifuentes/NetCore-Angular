@@ -1,15 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NetCore_Angular.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace NetCore_Angular.Persistence
 {
     public class NetCoreAngularDbContext: DbContext
     {
 
+        public DbSet<Vehicle> Vehicles { get; set; }
 
         public DbSet<Make> Makes { get; set; }
 
@@ -19,6 +17,11 @@ namespace NetCore_Angular.Persistence
             : base(options)
         {
             //System.Configuration.ConfigurationManager
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<VehicleFeature>().HasKey(vf => new { vf.VehicleId, vf.FeatureId });
         }
 
     }

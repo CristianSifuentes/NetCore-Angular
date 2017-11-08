@@ -13,6 +13,8 @@ namespace NetCore_Angular.Persistence
 
         public DbSet<Feature> Features { get; set; }
 
+        public DbSet<Model> Models { get; set; }
+
         public NetCoreAngularDbContext(DbContextOptions<NetCoreAngularDbContext> options) 
             : base(options)
         {

@@ -74,7 +74,7 @@ namespace NetCore_Angular.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteVehicle(int id)
+        public async Task<IActionResult> DeleteVehicle(int id)
         {
             var vehicle = context.Vehicles.FindAsync(id);
 
@@ -82,7 +82,7 @@ namespace NetCore_Angular.Controllers
                 return NotFound();
 
             context.Remove(vehicle);
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
             return Ok(id);
         }
 

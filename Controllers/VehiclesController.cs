@@ -8,6 +8,7 @@ using NetCore_Angular.Models;
 using NetCore_Angular.Controllers.Resources;
 using AutoMapper;
 using NetCore_Angular.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace NetCore_Angular.Controllers
 {
@@ -34,7 +35,7 @@ namespace NetCore_Angular.Controllers
                 return BadRequest(ModelState);
 
             var model = await context.Models.FindAsync(vehicleResource.ModelId);
-            if(model == null)
+            if (model == null)
             {
                 ModelState.AddModelError("ModelId", "Invalid modelId");
                 return BadRequest(ModelState);
@@ -49,5 +50,26 @@ namespace NetCore_Angular.Controllers
 
 
         }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateVehicle(int id, [FromBody]VehicleResource vehicleResource)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+
+            var vehicle = await context.Vehicles.Include(v => v.Features).SingleOrDefaultAsync( v => v.Id == id);
+                mapper.Map<VehicleResource, Vehicle>(vehicleResource, vehicle);
+            vehicle.LastUpdate = DateTime.Now;
+            await context.SaveChangesAsync();
+            var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
+            return Ok(result);
+
+
+        }
+
+
     }
 }

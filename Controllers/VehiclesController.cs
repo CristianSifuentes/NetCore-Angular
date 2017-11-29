@@ -86,7 +86,7 @@ namespace NetCore_Angular.Controllers
             return Ok(id);
         }
 
-
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetVehicle(int id)
         {
             var vehicle = await context.Vehicles.Include(v => v.Features).SingleOrDefaultAsync(v => v.Id == id);

@@ -28,7 +28,7 @@ namespace NetCore_Angular.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateVehicle([FromBody]SaveVehicleResource vehicleResource)
+        public async Task<IActionResult> CreateVehicle([FromBody]VehicleResource vehicleResource)
         {
 
             if (!ModelState.IsValid)
@@ -41,11 +41,11 @@ namespace NetCore_Angular.Controllers
                 return BadRequest(ModelState);
             }
 
-            var vehicle = mapper.Map<SaveVehicleResource, Vehicle>(vehicleResource);
+            var vehicle = mapper.Map<VehicleResource, Vehicle>(vehicleResource);
             vehicle.LastUpdate = DateTime.Now;
             context.Vehicles.Add(vehicle);
             await context.SaveChangesAsync();
-            var result = mapper.Map<Vehicle, SaveVehicleResource>(vehicle);
+            var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
             return Ok(result);
 
 
@@ -53,7 +53,7 @@ namespace NetCore_Angular.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateVehicle(int id, [FromBody]SaveVehicleResource vehicleResource)
+        public async Task<IActionResult> UpdateVehicle(int id, [FromBody]VehicleResource vehicleResource)
         {
 
             if (!ModelState.IsValid)
@@ -65,10 +65,10 @@ namespace NetCore_Angular.Controllers
             if (vehicle == null)
                 return NotFound();
 
-            mapper.Map<SaveVehicleResource, Vehicle>(vehicleResource, vehicle);
+            mapper.Map<VehicleResource, Vehicle>(vehicleResource, vehicle);
             vehicle.LastUpdate = DateTime.Now;
             await context.SaveChangesAsync();
-            var result = mapper.Map<Vehicle, SaveVehicleResource>(vehicle);
+            var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
             return Ok(result);
 
         }

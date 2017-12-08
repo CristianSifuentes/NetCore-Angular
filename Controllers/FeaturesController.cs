@@ -25,10 +25,10 @@ namespace NetCore_Angular.Controllers
         }
 
         [HttpGet("/api/features")]
-        public async Task<IEnumerable<KeyValuePairResource>> GetFeatures()
+        public async Task<IEnumerable<FeatureResource>> GetFeatures()
         {
             var features = await context.Features.ToListAsync();
-            return mapper.Map<List<Feature>, List<KeyValuePairResource>>(features);
+            return mapper.Map<List<Feature>, List<FeatureResource>>(features);
         }
 
     }

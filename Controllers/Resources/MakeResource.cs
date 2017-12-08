@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NetCore_Angular.Controllers.Resources
 {
-    public class MakeResource
+    public class MakeResource 
     {
         public int Id { get; set; }
         public string Name { get; set; }

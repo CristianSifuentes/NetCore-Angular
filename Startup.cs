@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using NetCore_Angular.Persistence;
 
 namespace NetCore_Angular
 {
@@ -32,7 +33,10 @@ namespace NetCore_Angular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
 
+
+            /*Auto mapper para uso de la liberia*/
             services.AddAutoMapper();
             services.AddDbContext<Persistence.NetCoreAngularDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc();

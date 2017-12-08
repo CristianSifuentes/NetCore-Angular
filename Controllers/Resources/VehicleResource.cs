@@ -11,6 +11,7 @@ namespace NetCore_Angular.Controllers.Resources
 
         public int Id { get; set; }
         public ModelResource Model { get; set; }
+        public MakeResource Make { get; set; }
         public bool IsRegistred { get; set; }
         public ContactResource Contact { get; set; }
         public DateTime LastUpdate { get; set; }
